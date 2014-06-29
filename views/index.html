@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Facebook Status Update using Node.JS and MySQL</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#add").click(function () {
+                    $.post("http://localhost:3000/add?status=" + $("#status_box").val(), function () {
+                        $("#show").append($("#status_box").val());
+                        $("#show").append("<br>");
+                    });
+                });
+            });
+</script>
+    </head>
+    <body>
+    <textarea rows="7" cols="50" placeholder="What's up !" id="status_box"></textarea><br>
+        <input type="button" id="add" value="Post">
+        <div id="show"></div>
+    </body>
+</html>
